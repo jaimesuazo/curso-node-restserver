@@ -12,6 +12,7 @@ class Server {
 
         //path de web (postman, front )
         this.usuariosPath = '/api/usuarios';
+        this.authPath     = '/api/auth';
 
 
         // Conectar a base de datos 
@@ -43,6 +44,7 @@ class Server {
 
     routes() {
         //Middleware de las rutas
+        this.app.use( this.authPath, require('../routes/auth'));
         this.app.use( this.usuariosPath, require('../routes/usuarios'));
     }
 
