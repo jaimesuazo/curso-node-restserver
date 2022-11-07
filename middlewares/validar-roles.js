@@ -26,7 +26,7 @@ const tieneRole = ( ...roles ) => {
     return ( req, res = response, next ) => {
         console.log( roles, req.usuario.rol );
 
-        if ( !res.usuario ) {
+        if ( !req.usuario ) {
             return res.status(500).json({
                 msg: 'Se quiere verificar el role sin validar el token primero '
             });
